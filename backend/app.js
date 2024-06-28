@@ -6,6 +6,7 @@ import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbConnect.js";
 import messageRouter from "./router/messageRouter.js"
 import userRouter from "./router/userRouter.js"
+import appointmentRouter from "./router/appointmentRouter.js"
 const app = express();
 import { errorMiddleware } from "./middlewares/errorMiddleware.js"; 
 config({path:"./config/config.env"});
@@ -30,5 +31,6 @@ dbConnection();
 
 app.use("/api/v1/message", messageRouter);
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/appointment", appointmentRouter);
 app.use(errorMiddleware); 
 export default app;
